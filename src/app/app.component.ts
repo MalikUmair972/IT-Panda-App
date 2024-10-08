@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CountactUsComponent } from './countact-us/countact-us.component';
 import { CommonModule } from '@angular/common';
+import { ContactComponent } from './contact/contact.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,CountactUsComponent, CommonModule],
+  imports: [RouterOutlet, CommonModule, ContactComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   template: `
