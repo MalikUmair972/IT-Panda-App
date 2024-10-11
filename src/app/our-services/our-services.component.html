@@ -1,0 +1,110 @@
+<section class="Service" id="Service">
+  <!-- Background Image -->
+  <div class="absolute w-full h-screen">
+    <img class="absolute w-full object-cover opacity-20"
+      src="https://e1.pxfuel.com/desktop-wallpaper/408/758/desktop-wallpaper-best-4-command-on-hip-command-center.jpg"
+      alt="Background Image">
+  </div>
+
+  <!-- Content Section (placed over image) -->
+  <div class="relative w-full h-full flex flex-col justify-start items-center z-10">
+    <h1 class="text-4xl font-bold text-blue-500 mt-10">OUR SERVICES</h1>
+    <div class="container grid grid-cols-1 md:grid-cols-3 grid-rows-2 pl-4 md:pl-8 gap-20 mt-8">
+      <div
+        class="angular bg-white w-80 h-80 flex flex-col justify-center items-center rounded-3xl transition duration-500 hover:bg-black hover:-translate-y-5 group hover:border-2 hover:shadow-custom2">
+        <img class="h-20 mt-4" src="https://v17.angular.io/assets/images/logos/angular/shield-large.svg" />
+        <h1 class="text-blue-500 text-center font-bold text-xl mt-4">Angular Development</h1>
+        <p class="text-black w-60 mt-4 group-hover:text-white">Angular helps build single page applications (SPAs)
+          with its interest,
+          attention features.
+          <button (click)="showForm()" class="text-blue-500 cursor-pointer text-start">Contact Us</button>
+        </p>
+      </div>
+
+      <div
+        class="react bg-white w-80 h-80 flex flex-col justify-center items-center rounded-3xl transition duration-500 hover:bg-black hover:-translate-y-5 group hover:border-2 hover:shadow-custom2">
+        <img class="h-20 mt-4" src="https://reactnative.dev/img/header_logo.svg" />
+        <h1 class="text-blue-500 font-bold text-xl mt-4 ">React Development</h1>
+        <div>
+          <p class="text-black w-60 mt-4 group-hover:text-white">React development offers having grace solutions to
+            some
+            of front-end programming.</p>
+          <button (click)="showForm()" class="text-blue-500 cursor-pointer">Contact Us</button>
+        </div>
+      </div>
+
+      <div
+        class="graphic bg-white w-80 h-80 flex flex-col justify-center items-center rounded-3xl transition duration-500 hover:bg-black hover:-translate-y-5 group hover:border-2 hover:shadow-custom2">
+        <img class="h-20 mt-4 rounded-full"
+          src="https://img.freepik.com/free-psd/3d-rendering-interface-tool-icon_23-2151591556.jpg?w=740&t=st=1728210782~exp=1728211382~hmac=ec3024c1eb2185c9c77be9963ba4b577e13a4f9669a22615c13fd5e1cd95444f" />
+        <h1 class="text-blue-500 font-bold text-xl mt-4">Graphic Designing</h1>
+        <div>
+          <p class="text-black w-60 mt-4 group-hover:text-white">Graphic designing is a format of communication using
+            text or images to create.</p>
+          <button (click)="showForm()" class="text-blue-500 cursor-pointer">Contact Us</button>
+        </div>
+      </div>
+
+      <div
+        class="marketing bg-white w-80 h-80 flex flex-col justify-center items-center rounded-3xl transition duration-500 hover:bg-black hover:-translate-y-5 group hover:border-2 hover:shadow-custom2">
+        <img class="h-20 mt-4 rounded-full"
+          src="https://img.freepik.com/premium-photo/colorful-picture-laptop-with-web-page-it_950428-37039.jpg?w=740" />
+        <h1 class="text-blue-500 text-center font-bold text-xl mt-4">Digital Marketing</h1>
+        <div>
+          <p class="text-black w-60 mt-4 group-hover:text-white">Digital marketing is the act of promoting and selling
+            products and services.</p>
+          <button (click)="showForm()" class="text-blue-500 cursor-pointer">Contact Us</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div *ngIf="isFormVisible" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center pt-10 z-20"
+  (click)="closeForm()">
+  <div class="bg-white h-full w-1/2" (click)="$event.stopPropagation()">
+    <h1 class="text-black text-center font-bold text-3xl pt-12">Contact Us</h1>
+    <form class="example-form">
+      <div class="flex flex-row justify-center gap-6 p-4">
+      <mat-form-field class="example-full-width w-72">
+        <mat-label>First Name</mat-label>
+        <input matInput placeholder="Ex. Jhon" class="w-full  ">
+      </mat-form-field>
+      <mat-form-field class="example-full-width w-72">
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="Ex. Doe">
+      </mat-form-field>
+    </div>
+    <form class="example-form">
+      <div class="flex-row justify-center gap-6 p-4">
+      <mat-form-field class="p-4 w-1/2">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+               placeholder="Ex. pat@example.com">
+        <mat-hint>Errors appear instantly!</mat-hint>
+        @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+          <mat-error>Please enter a valid email address</mat-error>
+        }
+        @if (emailFormControl.hasError('required')) {
+          <mat-error>Email is <strong>required</strong></mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field class="p-4 w-1/2">
+        <mat-label>Select Gender</mat-label>
+        <mat-select >
+          <mat-option value="option1">Male</mat-option>
+          <mat-option value="option2">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    </form>
+      <mat-form-field class=" w-full p-8 resize-none">
+        <mat-label>Leave a comment</mat-label>
+        <textarea class="resize-none" matInput placeholder=""></textarea>
+      </mat-form-field>
+    </form>
+    <div class="flex flex-col justify-center items-center">
+    <button class="w-1/2" mat-flat-button>Submit</button>
+  </div>
+  </div>
+</div>

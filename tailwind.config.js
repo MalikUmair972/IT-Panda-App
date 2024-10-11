@@ -1,16 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-   "./src/**/*.{html,ts}",
+    "./src/**/*.{html,ts}",
   ],
   theme: {
     extend: {
-      boxShadow: {
-        'custom': '8px 5px 8px 05px rgba(0, 0, 0, 0.25)', 
-        'custom2': '8px 5px 8px 05px rgba(225, 225, 225, 0.25)', 
-      }
+      keyframes: {
+        fadeInTransform: {
+          '0%': { opacity: '0', transform: 'translateY(30px)' }, // Start position
+          '100%': { opacity: '1', transform: 'translateY(0)' }, // End position
+        },
+      },
+      animation: {
+        fadeInTransform: 'fadeInTransform 1s ease-in-out forwards', // Ensure final state is retained
+      },
     },
   },
   plugins: [],
 }
-
